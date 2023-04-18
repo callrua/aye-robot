@@ -7,7 +7,7 @@ Leveraging ChatGPT to post peer reviews on GitHub pull requests.
 # Requirements
 
 $GH_TOKEN environment variable.
-> An GitHub API key, with permission to access and post comments to Pull Requests.
+> A GitHub API key, with permission to access and post comments to Pull Requests.
 
 $AI_TOKEN environment variable.
 > An API key for ChatGPT, to ask it to review Pull Requests.
