@@ -1,13 +1,13 @@
 # aye-robot
 
-Peer reviews from Chat GPT :forever-alone:
+Peer reviews from ChatGPT :forever-alone:
 
 Leveraging ChatGPT to post peer reviews on GitHub pull requests.
 
 # Requirements
 
 $GH_TOKEN environment variable.
-> An API key for GitHub to access and post comments to Pull Requests.
+> An GitHub API key, with permission to access and post comments to Pull Requests.
 
 $AI_TOKEN environment variable.
 > An API key for ChatGPT, to ask it to review Pull Requests.
