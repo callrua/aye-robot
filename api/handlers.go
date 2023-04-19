@@ -36,15 +36,13 @@ func NewPullRequestReviewHandler(a services.AiClient, g services.GitClient, l *l
 	}
 }
 
+// ReviewPR retrieves a PullRequest type from the context of the http request, calls the
+// git client for a raw diff of the Pull Request, then asks AI to review the diff
 func (p *PullRequestReviewHandler) ReviewPR(rw http.ResponseWriter, r *http.Request) {
 	pr := r.Context().Value(KeyPullRequest{}).(*types.PullRequest)
-
 	p.logger.Printf("Received request for pull request %d, for repository %s, under owner %s\n", pr.PullRequestNumber, pr.RepositoryName, pr.RepositoryOwner)
 
 	raw := p.gitClient.GetRaw(pr.RepositoryOwner, pr.RepositoryName, pr.PullRequestNumber)
-	// TODO: make this debug logging
-	// log.Printf(*raw)
-
 	chatGPTReview, err := p.aiClient.AskAi(raw)
 	if err != nil {
 		http.Error(rw, "Error connecting to chatGPT", http.StatusInternalServerError)
@@ -53,11 +51,9 @@ func (p *PullRequestReviewHandler) ReviewPR(rw http.ResponseWriter, r *http.Requ
 	prr := &types.PullRequestReview{
 		Review: chatGPTReview,
 	}
-
 	err = types.ToJSON(prr, rw)
 	if err != nil {
 		http.Error(rw, "Unable to marshal JSON", http.StatusInternalServerError)
 	}
-
 	p.gitClient.PostComment(pr, prr)
 }
