@@ -5,12 +5,12 @@ on:
 
 jobs:
   ci:
-    name: Build Dockerfile
+    name: Build and publish image
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
       - name: Build Docker image
-        run: docker build -t aye-robot:latest .
+        run: docker build -t callrua/aye-robot:latest .
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
