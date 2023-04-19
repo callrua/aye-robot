@@ -7,8 +7,8 @@ build:
 run: build
 	source env.sh && ./bin/app
 
-test: build
-	source env.sh && go test -v ./... -count=1
+test:
+	go test -v ./... -count=1
 
 docker-build:
 	source env.sh && docker build -t aye-robot:latest .
