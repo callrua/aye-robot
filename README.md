@@ -12,23 +12,11 @@ $GH_TOKEN environment variable.
 $AI_TOKEN environment variable.
 > An API key for ChatGPT, to ask it to review Pull Requests.
 
-# Running the server locally
+# Running as a server
 
-Without Docker:
+See the server docs: [cmd/server/README.md]
 
-```console
-go mod download
-make run
-```
+# Running via CLI
 
-With Docker:
+See the CLI docs: [cmd/cli/README.md]
 
-```console
-make docker-run
-```
-
-# Requesting a review 
-
-```console
-curl -XPOST localhost:9090 -d '{"repositoryOwner": "callrua", "repositoryName": "aye-robot", "pullRequestNumber": 1}'
-```
