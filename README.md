@@ -14,9 +14,9 @@ $AI_TOKEN environment variable.
 
 # Running as a server
 
-See the server docs: [cmd/server/README.md]
+See the server docs [here](cmd/server/README.md)
 
 # Running via CLI
 
-See the CLI docs: [cmd/cli/README.md]
+See the CLI docs: [here](cmd/cli/README.md)
 
