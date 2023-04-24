@@ -1,4 +1,6 @@
 bin/app
+cmd/cli/bin/app
+cmd/cli/server/app
 env.sh
 swap-pane
 TODO.txt
