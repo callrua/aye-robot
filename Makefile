@@ -1,17 +1,11 @@
 
 SHELL := /bin/bash
 
-build:
-	source env.sh && go build -o bin/app
-
-run: build
-	source env.sh && ./bin/app
-
 test:
 	go test -v ./... -count=1
 
-docker-build:
+docker-build-server:
 	source env.sh && docker build -t aye-robot:latest .
 
-docker-run: docker-build
+docker-run-server: docker-build
 	source env.sh && docker run --rm -p 32768:9090 aye-robot

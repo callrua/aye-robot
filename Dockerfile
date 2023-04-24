@@ -6,7 +6,7 @@ COPY . .
 
 RUN go mod download
 
-RUN go build -o bin/aye-robot
+RUN go build -o bin/aye-robot ./cmd/server/
 
 FROM scratch
 
