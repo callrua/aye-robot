@@ -18,4 +18,4 @@ See the server docs [here](cmd/server/README.md)
 
 # Running via CLI
 
-See the CLI docs: [here](cmd/cli/README.md)
+See the CLI docs [here](cmd/cli/README.md)
